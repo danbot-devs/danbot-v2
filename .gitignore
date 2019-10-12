@@ -1,0 +1,8 @@
+node_modules
+.git
+data
+package-lock.json
+datajsons
+SQL
+guildcommands
+config.js
