@@ -1,10 +1,10 @@
 const getSize = require('get-folder-size');
-module.exports = (client, guild, files) => {
+module.exports = async (client, guild, files) => {
     client.user.setActivity("LOADING STATUS.........")
-
+let link = await client.generateInvite([2146958847])
 //Ready Console Message
 const timestamp = `${moment().format("YYYY-MM-DD HH:mm:ss")}`;
-console.log(`Started ${client.user.username} at ${timestamp}!`)
+console.log(`Started ${client.user.username} at ${timestamp}!\nuse this link to invite the bot: ${link}`)
 fs.readdir("./commands/", (err, files) => {
     if (err) return console.log(err);
     getSize("./", (err, size) => {
@@ -17,14 +17,15 @@ let startEmbed = new Discord.RichEmbed()
 .addField("__**Total Guilds:**__", `${client.guilds.size}`, true)
 .addField("__**Commands:**__", files.length, true)
 .addField("__**Directory Size:**__", ((size / 1024 / 1024).toFixed(2) + ' MB'), true)
-client.channels.get(config.startupLogs).send(startEmbed);
+.addField("What are you waiting for:", `[Click here](${link}) to invite the bot!`)
+client.channels.find(c => c.id == config.startupLogs).send(startEmbed);
 })
 })
 
 //Command Handler
 fs.readdir("./commands/", (err, files) => {
-    if (err) return client.channels.get(config.startupLogs).send(err);
-         client.channels.get(config.startupLogs).send(`Loaded ${files.length} commands successfully!`)
+    if (err) return client.channels.find(c => c.id == config.startupLogs).send(err);
+         client.channels.find(c => c.id == config.startupLogs).send(`Loaded ${files.length} commands successfully!`)
      })
 
 //Auto Activities List

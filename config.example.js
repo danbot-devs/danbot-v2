@@ -1,20 +1,29 @@
-const config = {
+constconfig = {
+    
     "ownerID": "BotOwner",
-
     "token": "BotToken",
 
+    //API Keys
     "GoogleAPIKey": "GoogleAPIKey",
 
+    //LOG Channels
     "consoleLogs": "ConsoleLogsChannelID",
     "startupLogs": "StartUpLogsChannelID",
-  
-    "dashboard" : {
+
+    //Webhooks
+    "webhook": {
+        "ID": "WEBHOOKID",
+        "secret": "WEBHOOKSECRET"
+    },
+
+    //Dashboard Settings
+    "dashboard": {
         "oauthSecret": "OauthSecrethere",
         "callbackURL": "https://example.example/callback",
         "sessionSecret": "enterasecrethere",
         "domain": "https://example.example",
         "port": PORT
-      },
-  };
-  
-  module.exports = config;
+    },
+};
+
+module.exports = config;
