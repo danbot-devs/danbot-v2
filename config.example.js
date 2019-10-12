@@ -1,5 +1,5 @@
 constconfig = {
-    
+
     "ownerID": "BotOwner",
     "token": "BotToken",
 

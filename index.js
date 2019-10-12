@@ -10,17 +10,17 @@ global.SQLite = require("sqlite3");
 global.ms = require('ms');
 global.request = require('request');
 
-const bot = client;
+global.bot = client;
 
 //Event handler
-  fs.readdir('./events/', (err, files) => {
-      files = files.filter(f => f.endsWith('.js'));
-      files.forEach(f => {
-          const event = require(`./events/${f}`);
-          client.on(f.split('.')[0], event.bind(null, client));
-          delete require.cache[require.resolve(`./events/${f}`)];
-        });
-      });
+fs.readdir('./events/', (err, files) => {
+  files = files.filter(f => f.endsWith('.js'));
+  files.forEach(f => {
+    const event = require(`./events/${f}`);
+    client.on(f.split('.')[0], event.bind(null, client));
+    delete require.cache[require.resolve(`./events/${f}`)];
+  });
+});
 
 
 //Allow the bot to log into discord
