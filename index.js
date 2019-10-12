@@ -16,3 +16,6 @@ fs.readdir('./events/', (err, files) => {
         delete require.cache[require.resolve(`./events/${f}`)];
       });
     });
+
+//Allow the bot to log into discord
+client.login(config.token);
