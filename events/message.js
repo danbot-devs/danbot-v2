@@ -1,5 +1,4 @@
 module.exports = async (client, message, guild, prefix) => { 
-  const SQLite = require("sqlite");
   const sql = new SQLite('./SQL/msg.sqlite');
   client.getScore = sql.prepare("SELECT * FROM scores WHERE user = ? AND guild = ?");
   client.setScore = sql.prepare("INSERT OR REPLACE INTO scores (id, user, guild, points) VALUES (@id, @user, @guild, @points);");
