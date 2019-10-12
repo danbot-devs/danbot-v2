@@ -6,7 +6,7 @@ const client = new Discord.Client();
 global.config = require("./config.js")
 global.fs = require("fs");
 global.moment = require("moment");
-global.SQLite = require("sqlite3");
+global.SQLite = require("sqlite");
 global.ms = require('ms');
 global.request = require('request');
 
