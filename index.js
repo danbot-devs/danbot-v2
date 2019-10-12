@@ -6,6 +6,9 @@ const client = Discord.Client();
 global.fs = require("fs");
 global.moment = require("moment");
 global.SQLite = require("sqlite3")
+global.ms = require('ms')
+global.request = require('request')
+
 
 //Event handler
 fs.readdir('./events/', (err, files) => {
@@ -16,6 +19,9 @@ fs.readdir('./events/', (err, files) => {
         delete require.cache[require.resolve(`./events/${f}`)];
       });
     });
+
+
+
 
 //Allow the bot to log into discord
 client.login(config.token);
