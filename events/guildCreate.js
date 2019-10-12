@@ -11,7 +11,7 @@ module.exports = async (client, guild, files) => {
     //Embed
     let embed = new Discord.RichEmbed();
     embed.setTitle(':large_blue_circle: New server join');
-    embed.setDescription(`Server Owner: ${gowner.username} (${guild.owner})`);
+    embed.setDescription(`Server Owner: ${gowner.username} ( <${guild.owner.id}> )`);
     embed.addField("Name", guild.name, true);
     embed.addField("ID", guild.id, true).setColor("BLUE");
     embed.addField(`Members (${guild.memberCount})`, `<:wumpus:632647233870757889> ${guild.members.filter(member => !member.user.bot).size} <:bots:632647233296400385> ${guild.members.filter(member => member.user.bot).size} | <:online:632647233119977519>   ${guild.members.filter(m => m.presence.status === 'online').size + guild.members.filter(m => m.presence.status === 'idle').size} <:DnD:632647233346600970> ${guild.members.filter(m => m.presence.status === 'dnd').size} <:offline:632647233384480798> ${guild.members.filter(m => m.presence.status === 'offline').size}`, true);
