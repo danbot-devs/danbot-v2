@@ -9,6 +9,8 @@ global.moment = require("moment");
 global.SQLite = require("sqlite");
 global.ms = require('ms');
 global.request = require('request');
+const Enmap = require("enmap");
+client.settings = new Enmap({name: "settings"});
 
 global.bot = client;
 

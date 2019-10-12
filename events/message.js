@@ -55,7 +55,7 @@ module.exports = async (client, message, guild, prefix) => {
           client.channels.get(config.commandLogs).send(`[${message.guild.name}] [${message.author.username}] >> ${row.prefix}${command} ${commandargs}`);
               try {
                   let commandFile = require(`../commands/${command}.js`);
-                  commandFile.run(client, message, args, Discord, fs, sql);
+                  commandFile.run(client, message, args);
               } catch (err) {
                       if (err instanceof Error && err.code === "MODULE_NOT_FOUND") {
                           return;
