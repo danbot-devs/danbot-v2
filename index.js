@@ -6,11 +6,12 @@ const client = new Discord.Client();
 global.config = require("./config.js")
 global.fs = require("fs");
 global.moment = require("moment");
-global.SQLite = require("sqlite");
+global.SQLite = require("better-sqlite3");
 global.ms = require('ms');
 global.request = require('request');
 const Enmap = require("enmap");
 client.settings = new Enmap({name: "settings"});
+require("./functions.js")(client);
 
 global.bot = client;
 
