@@ -7,14 +7,14 @@ global.config = require("./config.js")
 global.fs = require("fs");
 global.moment = require("moment");
 global.SQLite = require("better-sqlite3");
-global.ms = require('ms');
-global.request = require('request');
+global.ms = require("ms");
+global.request = require("request");
 global.path = require("path");
-global.ytdl = require('ytdl-core');
-global.YouTube = require('simple-youtube-api');
+global.ytdl = require("ytdl-core");
+global.YouTube = require("simple-youtube-api");
 const Enmap = require("enmap");
 client.settings = new Enmap({name: "settings"});
-require("./functions.js")(client);
+require("./global/functions.js")(client);
 
 global.bot = client;
 

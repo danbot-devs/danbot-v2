@@ -21,11 +21,11 @@ module.exports = async (client, guild, files) => {
   client.setScore = sql.prepare("INSERT OR REPLACE INTO scores (id, user, guild, points) VALUES (@id, @user, @guild, @points);");
   }
 
-    client.user.setActivity("LOADING STATUS.........")
-    let link = await client.generateInvite([2146958847])
+    client.user.setActivity("LOADING STATUS.........");
+    let link = await client.generateInvite([2146958847]);
     //Ready Console Message
     const timestamp = `${moment().format("YYYY-MM-DD HH:mm:ss")}`;
-    console.log(`Started ${client.user.username} at ${timestamp}!\nuse this link to invite the bot: ${link}`)
+    console.log(`Started ${client.user.username} at ${timestamp}!\nuse this link to invite the bot: ${link}`);
     fs.readdir("./commands/", (err, files) => {
         if (err) return console.log(err);
         getSize("./", (err, size) => {

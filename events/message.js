@@ -2,7 +2,7 @@ module.exports = async (client, message, guild) => {
 
 
   if (message.author.bot) return;
-  const settings = message.settings = client.getSettings(message.guild.id);
+  global.settings = message.settings = client.getSettings(message.guild.id);
   const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
   if (message.content.match(prefixMention)) {
     return message.reply(`My prefix on this server is \`${settings.prefix}\``);
