@@ -9,6 +9,7 @@ global.moment = require("moment");
 global.SQLite = require("better-sqlite3");
 global.ms = require('ms');
 global.request = require('request');
+global.path = require("path");
 const Enmap = require("enmap");
 client.settings = new Enmap({name: "settings"});
 require("./functions.js")(client);
