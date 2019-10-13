@@ -10,11 +10,18 @@ global.SQLite = require("better-sqlite3");
 global.ms = require('ms');
 global.request = require('request');
 global.path = require("path");
+global.ytdl = require('ytdl-core');
+global.YouTube = require('simple-youtube-api');
 const Enmap = require("enmap");
 client.settings = new Enmap({name: "settings"});
 require("./functions.js")(client);
 
 global.bot = client;
+
+//Music stuffs
+client.youtube = new YouTube(config.GoogleAPIKey); // YouTube Client
+client.queue = new Map() // Music Queue
+client.votes = new Map(); // Vote Skip
 
 //Event handler
 fs.readdir('./events/', (err, files) => {
