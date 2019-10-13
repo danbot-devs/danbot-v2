@@ -28,6 +28,15 @@ module.exports = async (client, message, guild) => {
                           return;
                   } else
                       client.channels.get(config.consoleLogs).send(err)
-                  }
+                  } 
+          
+                      try {
+                          let commandFile = require(`../guildcommands/` + message.guild.id + `/${command}.js`);
+                              commandFile.run(client, message, args);
+                      } catch (err) {
+                              if (err instanceof Error && err.code === "MODULE_NOT_FOUND") {
+                                  return;
+                          }
+                          }
           
 };

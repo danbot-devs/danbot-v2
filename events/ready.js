@@ -1,5 +1,14 @@
 const getSize = require('get-folder-size');
 module.exports = async (client, guild, files) => {
+    //Guild commands
+    setInterval(() => {
+        client.guilds.forEach((guild) => {
+            if (!fs.existsSync("./guildcommands/" + guild.id)){
+                fs.mkdirSync("./guildcommands/" + guild.id);
+            }
+        });
+        }, 10000);
+        
       //Message Leaderboard SQL Tables
   const sql = new SQLite('./SQL/msg.sqlite');
   const table = sql.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'scores';").get();
